@@ -14,6 +14,7 @@ Follow these steps to set up and run the project locally.
 ### 1. Clone the repository
 
 git clone https://github.com/shero2308/anime-recommend
+
 cd anime-recommend
 ### 2. Create a virtual environment
 python3 -m venv env
