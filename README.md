@@ -35,7 +35,7 @@ python manage.py createsuperuser
 python manage.py runserver
 Your API will now be running at http://127.0.0.1:8000/.
 
-### Available Endpoints
+## Available Endpoints
 Authentication:
 
 POST /auth/register
@@ -139,7 +139,7 @@ Response:
   "message": "Preferences updated successfully!"
 }
 
-Sample Requests and Responses
+## Sample Requests and Responses
 
 ### 1. Register a New User
 
