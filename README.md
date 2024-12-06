@@ -35,8 +35,9 @@ python manage.py createsuperuser
 python manage.py runserver
 Your API will now be running at http://127.0.0.1:8000/.
 
-Available Endpoints
-Authentication
+### Available Endpoints
+Authentication:
+
 POST /auth/register
 Description: Register a new user.
 Request Body:
@@ -46,34 +47,42 @@ Request Body:
   "username": "user1",
   "password": "password123"
 }
+
 Response:
 
 {
   "message": "User created successfully!"
 }
-POST /auth/login
+
+### POST /auth/login
 Description: Log in and retrieve JWT tokens.
+
 Request Body:
 
 {
   "username": "user1",
   "password": "password123"
 }
+
 Response:
 
 {
   "refresh": "refresh_token",
   "access": "access_token"
 }
-Anime Search
+
+### Anime Search
 GET /anime/search
 Description: Search for anime by name or genre.
 Query Parameters:
+
 name: (Optional) The name of the anime.
 genre: (Optional) The genre of the anime.
+
 Example Request:
 
 GET /anime/search?name=Naruto&genre=Action
+
 Response:
 
 [
@@ -86,8 +95,11 @@ Response:
     "popularity": 1000000
   }
 ]
-Anime Recommendations
+
+### Anime Recommendations
+
 GET /anime/recommendations
+
 Description: Fetch anime recommendations based on the authenticated user's preferences.
 Authentication: This endpoint requires the user to be authenticated with a JWT token.
 Response:
@@ -102,9 +114,11 @@ Response:
     "popularity": 950000
   }
 ]
-Manage User Preferences
+
+### Manage User Preferences
 GET /user/preferences
 Description: Retrieve the preferences of the authenticated user.
+
 Response:
 
 {
@@ -112,19 +126,23 @@ Response:
 }
 POST /user/preferences
 Description: Update the preferences of the authenticated user.
+
 Request Body:
 
 {
   "genres": ["Action", "Adventure", "Fantasy"]
 }
+
 Response:
 
 {
   "message": "Preferences updated successfully!"
 }
+
 Sample Requests and Responses
 
-1. Register a New User
+### 1. Register a New User
+
 Request:
 
 POST /auth/register
@@ -133,13 +151,15 @@ Content-Type: application/json
   "username": "user1",
   "password": "password123"
 }
+
 Response:
 
 {
   "message": "User created successfully!"
 }
 
-2. Log in
+### 2. Log in
+
 Request:
 
 POST /auth/login
@@ -148,6 +168,7 @@ Content-Type: application/json
   "username": "user1",
   "password": "password123"
 }
+
 Response:
 
 
@@ -156,10 +177,12 @@ Response:
   "access": "access_token"
 }
 
-3. Search for Anime
+### 3. Search for Anime
+
 Request:
 
 GET /anime/search?name=Naruto&genre=Action
+
 Response:
 
 [
@@ -173,11 +196,12 @@ Response:
   }
 ]
 
-4. Get Recommendations
+### 4. Get Recommendations
 Request:
 
 GET /anime/recommendations
 Authorization: Bearer access_token
+
 Response:
 
 [
@@ -190,7 +214,8 @@ Response:
     "popularity": 950000
   }
 ]
-Troubleshooting
+
+### Troubleshooting
 If you encounter any issues, ensure that all dependencies are installed using pip install -r requirements.txt.
 Make sure the database is set up correctly and migrations are applied (python manage.py migrate).
 Check your Django server logs for any errors when interacting with the API.
